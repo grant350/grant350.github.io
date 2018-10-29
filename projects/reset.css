@@ -2,10 +2,12 @@
 
 *{margin: 0px;
 width:100%;
-font-size: 20px;
-color: black;
+font-size: 30px;
+color: white;
+font-style:none;
 font-weight: 400;
 font-family: fantasy;
+text-decoration:none;
 }
 html{
 width:100%;
