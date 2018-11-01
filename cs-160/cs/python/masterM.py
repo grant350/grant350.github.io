@@ -2,9 +2,10 @@ import random ;
 hot_spot=0;
 trys = 0;
 colors = ['R','G','B','O','P']
-code_maker_array=[]
 other_colors =['Red','Green','Blue','Orange','Purple']
+code_maker_array=[]
 user_color_array=[]
+
 
 
 
