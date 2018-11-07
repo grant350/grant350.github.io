@@ -1,43 +1,52 @@
-import random as rd
-import os
+import random;
+import os;
+import turtle;
+rpsg = ['rock','paper','scissors','gun']
+
+print ('you will begin by picking numbers 0-3')
+print (rpsg[0] + ' 0 ', rpsg[1] + ' 1 ', rpsg[2] + ' 2 ',rpsg[3] + ' 3 ')
+
+
+
+def computer(answer):
+    print(answer)
+    random_num = random.randint(0,3)
+    if (random_num < answer):
+        print ('you have won the game')
+    elif(random_num == answer):
+        print('tie breaker')
+    else:
+        print('you have lost the game')
+
+
+
 
 def start():
-  while True:
-    try:
-      user_input = raw_input('please enter a string, Rock, Paper,Scizors,Gun:');
-      user_input.lower();
-      c = isinstance(user_input, str)
-      print(c)
-      if (c == True):
-          print("your input is " + user_input)
-          return user_input
-          print('is a string')
-    except Exception:
-      print('sorry bad input,you must type  cap or lower with  correct spelling.    Try Again')
-start();
-value=int(0);
+    value = 0
+    corrected_value = 0
+    user_input=input('please put your guess here:')
+    if  (isinstance(user_input,str) == True and user_input.isdigit() != True ):
+        user_input.lower();
+        print('its a string ' + user_input)
+        for i in range(len(rpsg)):
+            if (rpsg[i] == user_input):
+                value=i
+                corrected_value = value
+                print(value)
+                print(corrected_value)
+                return value;
 
+    if (isinstance(user_input,int) == True or user_input.isdigit() == True):
+        print('its an int ' + str(user_input))
+        value = int(user_input)
+        user_input = int(user_input)
+        if (value <= 3 and value >=0):
+            print('correct')
+            corrected_value = user_input
+            print (value)
+            print(corrected_value)
+            return value;
+            return computer(corrected_value)
+            
 
-def fix(user_input):
-  user_input =start();
-  if (user_input == 'rock'):
-    value = 0;
-    return value;
-    print('your value was rock which is == 0')
-  elif (user_input == 'paper'):
-    value = 1
-    return value
-    print('your value was paper which is == 1')
-  elif (user_input == 'scissors'):
-    value = 2
-    return value
-    print('your value was scizors which is == 2')
-  elif (user_input == 'gun'):
-    value = 3
-    return value
-    print('your value was gun which is == 3')
-
-def random():
-    random_num = random.ranint(0,3)
-    if random_num <= user_input:
-        print('you have one the game!!!!!')
+start()
