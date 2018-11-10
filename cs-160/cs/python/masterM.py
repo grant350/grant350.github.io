@@ -1,51 +1,42 @@
-import random ;
+import random;
 hot_spot=0;
-trys = 0;
 colors = ['R','G','B','O','P']
-other_colors =['Red','Green','Blue','Orange','Purple']
-code_maker_array=[]
-user_color_array=[]
-
-
-
-
+other_colors =['RED','GREEN','BLUE','ORANGE','PURPLE']
+guesser_array=[]
 
 
 def code_maker():
-    print ('code maker turn')
-
+    code_maker_array=[]
     for i in range(4):
-        rand = colors[random.randint(0,4)];
-        print rand;
-        code_maker_array.append(rand)
-        print code_maker_array
+        ran = random.randint(0,4)
+        print (ran)
+        code_maker_array.append(colors[ran])
+        print(code_maker_array)
+    return code_maker_array
+x = code_maker()
 
 
-def code_breaker(colors,other_colors):
-    print ('code breaker turn')
+def code_breaker():
+    trys = 0;
+    cbi = input('please put in r,g,b,o,p or red,green,blue,orange,purple_ ')
+    cbi = cbi.upper()
+    if ( isinstance(cbi,str) == True):
+        print ('it is a string')
+        print (cbi)
+        for i in range(4):
+            if (len(cbi)>=3):
+                a = other_colors[i].find(cbi)
+            else:
+                b = colors[i].find(cbi)
+            if (a >= 0 or b >= 0):
+                print ('yummmeiabui aebfiahfu dsdsde')
 
-    while True:
-          try:
-               for i in range(4):
-                   print(i)
-                   breaker = raw_input('R for red G for green P for purple B for blue O for orange:')
-                   user_color_array.append(breaker)
-                   print (breaker)
-                   print (user_color_array)
-                   return breaker;
-          if breaker.upper() not in (colors,other_colors):
-                print("Not an appropriate choice.")
-                print('you must use R for red G for green P for purple B for blue O for orange')
-          else:
-               break
+y = code_breaker()
 
 
-def compare(code_maker_array):
-    print ('nothing')
+"""
+def code_checker(x):
+    print (x)
 
-    if (trys == 8):
-        print('Game Over')
-    trys = trys +1;
-
-code_maker()
-code_breaker()
+code_checker(x)
+"""
